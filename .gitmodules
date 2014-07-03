@@ -1,0 +1,24 @@
+[submodule "x/Hydrogen"]
+	path = x/Hydrogen
+	url = https://github.com/XenGenie/Hydrogen
+[submodule "x/Carbon"]
+	path = x/Carbon
+	url = https://github.com/XenGenie/Carbon
+[submodule "x/Nitrogen"]
+	path = x/Nitrogen
+	url = https://github.com/XenGenie/Nitrogen
+[submodule "x/Oxygen"]
+	path = x/Oxygen
+	url = https://github.com/XenGenie/Oxygen
+[submodule "x/Copper"]
+	path = x/Copper
+	url = https://github.com/XenGenie/Copper
+[submodule "x/Quartz"]
+	path = x/Quartz
+	url = https://github.com/XenGenie/Quartz
+[submodule "x/Golden-Goose-Egg"]
+	path = x/Golden-Goose-Egg
+	url = https://github.com/XenGenie/Golden-Goose-Egg
+[submodule "x/Emerald"]
+	path = x/Emerald
+	url = https://github.com/XenGenie/Emerald

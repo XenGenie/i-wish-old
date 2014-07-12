@@ -21,11 +21,10 @@
 	// @todo: Keep Being Awesome.
 	require("_cfg/lang.cfg");
 	require("_cfg/x.cfg");
-	require('Hydrogen/x4deep/xengine.php');
-
-	// Set
-	$X = new Xengine($cfg);
+	require('Hydrogen/x4deep/xengine.php'); 
 	
+	// Set
+	$X = new Xengine($cfg); 
 	// GO!
 	$X->knock();
 ?>

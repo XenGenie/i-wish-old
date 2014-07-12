@@ -5,7 +5,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> -->
 	{if $Xtra != '' AND $method  != '' AND ($Xtra != 'index')}
-		{include file="$Door/$Xtra/$method.html" assign=XTRA_METHOD}	
+		{include file="../../../Oxygen/x{$Xtra|ucfirst}/$method.html" assign=XTRA_METHOD}	
+
+
 		{$HTML.BODY.HTML = $XTRA_METHOD}
 	{else if $HTML.BODY.HTML == ''}
 		{include file="$Door/portal.html" assign=PORTAL}

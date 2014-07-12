@@ -38,7 +38,7 @@
 			}
 			{/FOREACH}*/
 
-			html, body{
+			 body{
 				background : rgb(109,179,242); /* Old browsers */
 				/* IE9 SVG, needs conditional override of 'filter' to 'none' */
 				background : url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzZkYjNmMiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjE5JSIgc3RvcC1jb2xvcj0iIzU0YTNlZSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjYwJSIgc3RvcC1jb2xvcj0iIzM2OTBmMCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMxZTY5ZGUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
@@ -50,6 +50,10 @@
 				background : linear-gradient(to right,  rgba(109,179,242,1) 0%,rgba(84,163,238,1) 19%,rgba(54,144,240,1) 60%,rgba(30,105,222,1) 100%); /* W3C */
 				filter     : progid:DXImageTransform.Microsoft.gradient( startColorstr='#6db3f2', endColorstr='#1e69de',GradientType=1 ); /* IE6-8 */ 
 			}
+
+            body{
+                background: url(/bin/images/bgs/full/{$suite}.png) center center fixed !important;
+            }
 
 			.transparent-black-25{
 				background-color: rgba(0,0,0,0.25);
@@ -69,17 +73,56 @@
 </head>
 <body class="background-dark">
 <div class="logo text-center">
-    <h4><a href="/" class=""><i class="fa fa-globe"></i></a><br/><a href="/{$toBackDoor}"><strong>Super</strong> Dom</a></h4>  
+    <h4>
+        
+        
+        <a href="/" class="">
+            <i class="fa fa-globe"></i> 
+        </a> 
+        <br/>
+       <!--  <span class="label label-warning">  
+         <strong>x</strong></span> -->
+        <a href="/{$toBackDoor}">
+            <strong>Super</strong><span>Dom</span>
+           
+        </a>  <br/>
+        
+          
+        <btn class="btn btn-sm label dropdown label-success dropdown  ">  
 
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"> {$suite}  <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li class="divider"></li>
+              <li class="dropdown-header">Nav header</li>
+              <li><a href="#">Separated link</a></li>
+              <li><a href="#">One more separated link</a></li>
+            </ul></span> <span class="label label-danger">  
+        &alpha; </btn>
+      <!--   <span class="label   label-info ">  
+           infused </span>  -->
+            
+      
+    </h4>  
 </div>
 <nav id="sidebar" class="sidebar nav-collapse collapse">
     <ul id="side-nav" class="side-nav">
         <li class="active">
-            <a href="/{$toBackDoor}"><i class="fa fa-eye"></i> <span class="name">Watchtower <span class="label label-primary">v&beta;</span></span>  </a>
+            <a href="/{$toBackDoor}"><i class="fa fa-eye"></i> <span class="name">Watchtower</span>  </a>
         </li>
 
         {foreach $admin_menu as $key => $item}
-            {if $key} 
+            {assign var=children value=0}
+            {foreach $xtras as $x => $xtra}
+
+                {if $xtra.icon && $key == $xtra.see && ($xtra.alpha == true || $xtra.beta == true || $xtra.delta == true || $xtra.omega == true)}
+                    {assign var=children value=1}
+                {/if}
+            {/foreach}
+
+            {if $key && $children > 0} 
 
                  <li class="panel">
                     <a class="accordion-toggle collapsed" data-toggle="collapse"
@@ -151,6 +194,9 @@
                             <i class="fa fa-search"></i>
                         </a>
                     </li>
+
+
+
                     <li class="dropdown">
                         <a href="#" title="Messages" id="messages"
                            class="dropdown-toggle"
@@ -160,7 +206,7 @@
                         <ul id="messages-menu" class="dropdown-menu messages" role="menu">
                             <li role="presentation">
                                 <a href="#" class="message">
-                                    <img src="img/1.jpg" alt="">
+                                    
                                     <div class="details">
                                         <div class="sender">Jane Hew</div>
                                         <div class="text">
@@ -171,7 +217,7 @@
                             </li>
                             <li role="presentation">
                                 <a href="#" class="message">
-                                    <img src="img/2.jpg" alt="">
+                                     
                                     <div class="details">
                                         <div class="sender">Alies Rumiancaŭ</div>
                                         <div class="text">
@@ -182,7 +228,7 @@
                             </li>
                             <li role="presentation">
                                 <a href="#" class="message">
-                                    <img src="img/3.jpg" alt="">
+                                     
                                     <div class="details">
                                         <div class="sender">Michał Rumiancaŭ</div>
                                         <div class="text">
@@ -280,7 +326,7 @@
                         </a>
                         <ul id="account-menu" class="dropdown-menu account" role="menu">
                             <li role="presentation" class="account-picture">
-                                <img src="img/2.jpg" alt="">
+                                <!-- <img src="img/2.jpg" alt=""> -->
                                 Philip Daineka
                             </li>
                             <li role="presentation">
@@ -318,6 +364,7 @@
                     <input type="search" class="search-query" placeholder="Search...">
                 </form>
                 <div class="notifications pull-right">
+
                     <div class="alert-info alert pull-right">
                         <a href="#" class="close" data-dismiss="alert">&times;</a>
                         <i class="fa fa-info-circle"></i> Adjust the Layout using the <a id="notification-link" href="#">settings</a> on the right!
@@ -461,18 +508,8 @@
 
   
     {include file="$Door/scripts.html" assign=SCRIPT}
-
     {$SCRIPT}
-
-    {if $HTML.BODY.SCRIPT != ''}
-        <script>
-            {$HTML.BODY.SCRIPT}
-        </script>
-    {/if} 
-
-    {if $HTML.BODY.INC.JS != ''}
-        {$HTML.BODY.INC.JS}
-    {/if} 
+ 
 
     <!-- page specific -->
 
@@ -489,9 +526,7 @@
     <script type="text/javascript" src="/x/html/layout/watchtower/lib/jquery.nestable.js"> </script>
 
     <div class="content container" id="container" data-pjax-container>
-       
         {assign var="WT" value="/x/html/layout/watchtower/"}
-        
         {if $TPL_EXISTS && $Xtra != '' AND $method  != '' AND ($Xtra != 'index')}
        
             {if $Xtra != 'login'}     
@@ -547,10 +582,12 @@
                 </div>
             {/if}
 
-            {include file="$Door/$Xtra/$method.html" assign=XTRA_METHOD}    
+            {include file="../../../{$suite}/x{$Xtra|ucfirst}/$method.tpl" assign=XTRA_METHOD}    
             {$HTML.BODY.HTML = $XTRA_METHOD}
+
         {else if $HTML.BODY.HTML == ''}
-            {include file="$Door/portal.html" assign=PORTAL}
+
+            {include file="../../$Door/portal.tpl" assign=PORTAL}
             {$HTML.BODY.HTML = $PORTAL}
         {/if}
 
